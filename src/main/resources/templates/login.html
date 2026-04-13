@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistem Mahasiswa</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="login-wrapper">
+    <div class="login-box">
+        <div class="card-header">🎓 Login Sistem Mahasiswa</div>
+        <div class="login-body">
+            <p class="error-msg" th:if="${error}" th:text="${error}"></p>
+
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Masukkan username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+                </div>
+                <button type="submit" class="btn-primary" id="loginBtn">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
