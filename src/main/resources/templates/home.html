@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Sistem Mahasiswa</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="home-wrapper">
+    <div class="home-toolbar">
+        <h1>🎓 Data Mahasiswa</h1>
+        <a href="/form" class="btn-blue" id="addMahasiswaBtn">+ Tambah Mahasiswa</a>
+    </div>
+    <div class="home-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Jenis Kelamin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${#lists.isEmpty(mahasiswaList)}">
+                    <td colspan="4" style="text-align:center; color:#888; padding:20px;">
+                        Belum ada data mahasiswa. Klik <strong>Tambah Mahasiswa</strong> untuk menambahkan.
+                    </td>
+                </tr>
+                <tr th:each="mhs, iterStat : ${mahasiswaList}">
+                    <td th:text="${iterStat.count}"></td>
+                    <td th:text="${mhs.nim}"></td>
+                    <td th:text="${mhs.nama}"></td>
+                    <td th:text="${mhs.jenisKelamin}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="home-footer">
+            <a href="/logout" class="link-blue" id="logoutBtn">Logout</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
